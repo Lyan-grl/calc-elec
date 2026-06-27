@@ -1,6 +1,6 @@
 /* =========================================
-   CALC-ELEC — Feuille de style globale
-   Design : technique, lisible, sans superflu
+   CACORE — Feuille de style globale
+   Calculer. Comprendre. Réussir.
    ========================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
@@ -514,4 +514,230 @@ code, .mono {
   .fields { grid-template-columns: 1fr 1fr; }
   .calc-card { padding: 20px; }
   .result-value { font-size: 1.6rem; }
+}
+
+/* =========================================
+   CACORE — Styles spécifiques accueil
+   ========================================= */
+
+/* Navigation dropdown */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown > a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-dropdown > a::after {
+  content: '▾';
+  font-size: 0.65rem;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px;
+  min-width: 180px;
+  z-index: 200;
+  box-shadow: 0 8px 24px rgba(0,0,0,.4);
+}
+
+.nav-dropdown:hover .dropdown-menu { display: block; }
+
+.dropdown-menu a {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  padding: 7px 12px;
+  border-radius: 6px;
+  transition: color .15s, background .15s;
+}
+
+.dropdown-menu a:hover {
+  color: var(--accent);
+  background: rgba(0,212,170,.08);
+  text-decoration: none;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 6px 0;
+}
+
+/* 3 gros boutons héros */
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 36px;
+}
+
+.hero-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 32px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .2s, transform .2s;
+  min-width: 160px;
+}
+
+.hero-btn:hover {
+  text-decoration: none;
+  transform: translateY(-3px);
+}
+
+.hero-btn.btn-calc  { border-color: rgba(0,212,170,.3); }
+.hero-btn.btn-learn { border-color: rgba(79,156,255,.3); }
+.hero-btn.btn-train { border-color: rgba(245,166,35,.3); }
+
+.hero-btn.btn-calc:hover  { border-color: var(--accent);  background: rgba(0,212,170,.07); }
+.hero-btn.btn-learn:hover { border-color: var(--accent2); background: rgba(79,156,255,.07); }
+.hero-btn.btn-train:hover { border-color: var(--warn);    background: rgba(245,166,35,.07); }
+
+.hero-btn-icon { font-size: 2rem; line-height: 1; }
+
+.hero-btn-label {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.hero-btn-sub {
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Sections accueil */
+.home-section {
+  padding: 56px 0 0;
+}
+
+.home-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.home-section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+.home-section-title span {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+}
+
+.dot-calc  { background: var(--accent); }
+.dot-learn { background: var(--accent2); }
+.dot-train { background: var(--warn); }
+
+.see-all {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  transition: color .2s;
+}
+.see-all:hover { color: var(--accent); text-decoration: none; }
+
+/* Grilles spécifiques accueil */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.home-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .2s, transform .15s;
+}
+
+.home-card:hover {
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: inherit;
+}
+
+.home-card.card-calc:hover  { border-color: var(--accent); }
+.home-card.card-learn:hover { border-color: var(--accent2); }
+.home-card.card-train:hover { border-color: var(--warn); }
+
+.home-card-icon { font-size: 1.3rem; }
+
+.home-card h3 {
+  font-size: 0.9rem;
+  color: var(--white);
+}
+
+.home-card p {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.home-card-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 2px 8px;
+  border-radius: 100px;
+  display: inline-block;
+  width: fit-content;
+  margin-top: 4px;
+}
+
+.tag-calc  { background: rgba(0,212,170,.1);  color: var(--accent); }
+.tag-learn { background: rgba(79,156,255,.1); color: var(--accent2); }
+.tag-train { background: rgba(245,166,35,.1); color: var(--warn); }
+
+/* Badge niveau */
+.badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 2px 8px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+/* Footer accueil */
+.home-footer-pad { padding-bottom: 80px; }
+
+@media (max-width: 600px) {
+  .hero-actions { flex-direction: column; align-items: center; }
+  .hero-btn { width: 100%; max-width: 280px; flex-direction: row; padding: 16px 20px; }
+  .home-grid { grid-template-columns: 1fr 1fr; }
 }
